@@ -309,10 +309,4 @@ Devise.setup do |config|
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
 
-  require 'devise/orm/active_record'
-  config.omniauth :google_oauth2,
-    ENV['GOOGLE_CLIENT_ID'], # 環境変数に先ほど控えたクライアントIDを入れておく
-    ENV['GOOGLE_CLIENT_SECRET'], # 環境変数に先ほど控えたシークレットを入れておく
-    name: :google,
-    scope: %w(email)
 end

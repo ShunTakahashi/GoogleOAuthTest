@@ -1,6 +1,11 @@
+require 'omniauth/strategies/hoge'
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google
     @user = User.find_for_google(request.env['omniauth.auth'])
+
+    # これで受け取れる
+    hoge = request.env['omniauth.params']['hoge']
+
 
     if @user.persisted?
       flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Google'
